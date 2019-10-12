@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="navbar">
-  <a class="navbar-brand" href="#">Сайт с рецептами</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+  <a class="navbar-brand" routerLink="/">Сайт с рецептами</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
     aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation"  (click)="toggleNavbar()">
     <span class="navbar-toggler-icon"></span>
@@ -9,18 +9,25 @@
     [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Главная</a>
+        <a class="nav-link" routerLink="/">Главная</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Рецепты</a>
+        <a class="nav-link" routerLink="/recipes">Рецепты</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin">Админ-панель</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Название блюда">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Найти</button>
-    </form>
+    <ul class="navbar-nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="#">Вход</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="#">Регистрация</a>
+      </li>
+    </ul>
   </div>
 </nav>
 <div id="app-main-container">
-  <app-main></app-main>
+  <router-outlet></router-outlet>
 </div>

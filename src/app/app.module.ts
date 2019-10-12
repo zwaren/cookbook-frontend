@@ -4,17 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { MainComponent } from './main/main.component';
 
 
 const routes: Routes = [
-  { path: '', component: AppComponent }
+  { path: '', pathMatch: 'full', redirectTo: 'main' },
+  { path: 'main', loadChildren:  './main/main.module#MainModule' },
+  { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
+  { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule' },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
