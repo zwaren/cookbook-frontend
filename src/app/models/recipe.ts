@@ -1,4 +1,3 @@
-import { Ingredient } from './ingredient';
 import { RecipeStep } from './recipe-step';
 
 export class Recipe {
@@ -6,7 +5,7 @@ export class Recipe {
     name: string;
     image: string;
     description: string;
-    ingredients: [Ingredient, number][];
+    ingredients: string;
     steps: RecipeStep[];
 }
 
