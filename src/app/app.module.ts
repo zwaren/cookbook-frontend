@@ -8,9 +8,9 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'main' },
-  { path: 'main', loadChildren:  './main/main.module#MainModule' },
-  { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
-  { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule' },
+  { path: 'main', loadChildren:  './components/main/main.module#MainModule' },
+  { path: 'admin', loadChildren: './components/admin/admin.module#AdminModule' },
+  { path: 'recipes', loadChildren: './components/recipes/recipes.module#RecipesModule' },
 ];
 
 @NgModule({
