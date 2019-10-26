@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipeStepService } from '../../../services/recipe-step/recipe-step.service';
+import { RecipeStep } from '../../../models/recipe-step';
 
 @Component({
   selector: 'app-recipe-step-list',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeStepListComponent implements OnInit {
 
-  constructor() { }
+  recipeSteps: RecipeStep[];
+
+  constructor(private recipeStepService: RecipeStepService) { }
 
   ngOnInit() {
+    this.recipeStepService.getList()
+      .subscribe(data => this.recipeSteps = data);
   }
 
 }

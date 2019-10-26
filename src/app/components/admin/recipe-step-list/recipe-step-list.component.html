@@ -1,1 +1,16 @@
-<p>recipe-step-list works!</p>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th></th>
+                <th><button class="btn btn-primary" routerLink="./add">Добавить</button></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let recipeStep of recipeSteps;">
+                <th scope="row">{{ recipeStep.id }}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>

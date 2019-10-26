@@ -1,1 +1,24 @@
-<p>recipe-step-add works!</p>
+<h2 class="text-center">Добавить шаг</h2>
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="lastName">Название:</label>
+    <input type="text" formControlName="name" placeholder="" name="name" class="form-control" id="name">
+  </div>
+
+  <div class="form-group">
+    <label for="firstName">Ссылка на изображение:</label>
+    <input type="text" formControlName="image" placeholder="" name="image" class="form-control" id="image">
+  </div>
+
+  <div class="form-group">
+    <label for="middleName">Описание:</label>
+    <input type="text" formControlName="description" placeholder="" name="description" class="form-control" id="description">
+  </div>
+
+  <div class="form-group">
+    <label for="middleName">Список ингредиентов:</label>
+    <input type="text" formControlName="ingredients" placeholder="" name="ingredients" class="form-control" id="ingredients">
+  </div>
+
+  <button class="btn btn-success">Добавить</button>
+</form>
