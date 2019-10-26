@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://cookback-1337.herokuapp.com/",
+  apiUrl: "https://cookback-1337.herokuapp.com",
 };
 
 /*

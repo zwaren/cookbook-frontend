@@ -1,1 +1,18 @@
-<p>Nothing to see here. Move along!</p>
+<div class="wrapper">
+  <!-- Sidebar -->
+  <nav class="navbar-light bg-light p-2">
+    <div class="sidebar-header">
+      <p class="lead">Админ-панель</p>
+    </div>
+    <div id="navbarColor01">
+      <ul class="list-unstyled components navbar-nav">
+        <a class="nav-link" routerLink="./recipe">Рецепты</a>
+        <a class="nav-link" routerLink="./recipe-step">Шаги рецептов</a>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="editor">
+    <router-outlet></router-outlet>
+  </div>
+</div>

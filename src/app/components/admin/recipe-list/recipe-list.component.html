@@ -1,0 +1,18 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Название</th>
+        <th></th>
+        <th><button class="btn btn-primary" routerLink="./add">Добавить</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recipe of recipes;">
+        <th scope="row">{{ recipe.id }}</th>
+        <th>{{ recipe.name }}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
