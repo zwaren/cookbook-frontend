@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'main', loadChildren:  './components/main/main.module#MainModule' },
   { path: 'admin', loadChildren: './components/admin/admin.module#AdminModule' },
   { path: 'recipes', loadChildren: './components/recipes/recipes.module#RecipesModule' },
+  { path: 'auth', loadChildren: './components/auth/auth.module#AuthModule' },
 ];
 
 @NgModule({

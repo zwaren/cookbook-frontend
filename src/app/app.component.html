@@ -14,16 +14,21 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/recipes">Рецепты</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="authService.loggedIn()" class="nav-item">
         <a class="nav-link" routerLink="/admin">Админ-панель</a>
       </li>
     </ul>
-    <ul class="navbar-nav justify-content-end">
+    <ul *ngIf="!authService.loggedIn()" class="navbar-nav justify-content-end">
       <li class="nav-item">
-        <a class="nav-link" routerLink="#">Вход</a>
+        <a class="nav-link" routerLink="/auth/login">Вход</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="#">Регистрация</a>
+        <a class="nav-link" routerLink="/auth/login">Регистрация</a>
+      </li>
+    </ul>
+    <ul *ngIf="authService.loggedIn()" class="navbar-nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" (click)="authService.logout()">Выход</a>
       </li>
     </ul>
   </div>
