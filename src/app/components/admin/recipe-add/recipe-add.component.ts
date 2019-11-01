@@ -37,18 +37,16 @@ export class RecipeAddComponent implements OnInit {
     this.fileToUpload = files.item(0);
   }
 
-  public onSubmit() {
+  onSubmit() {
     this.filesUploadService.upload(this.fileToUpload)
       .subscribe(data => {
         this.fileUrl = `${environment.apiUrl + data['file']}`;
-        console.log(data);
+        this.addForm.value['image'] = this.fileUrl;
+        this.recipeService.create(this.addForm.value)
+          .subscribe(data => {
+            this.router.navigate(['admin', 'recipe']);
+          });
       });
 
-    this.addForm.setValue(this.addForm.value + {'image': this.fileUrl});
-    console.log(this.addForm.value);
-    this.recipeService.create(this.addForm.value)
-      .subscribe(data => {
-        this.router.navigate(['admin', 'recipe']);
-      });
   }
 }

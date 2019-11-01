@@ -37,11 +37,11 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('accessToken');
+    localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
 
   loggedIn(): boolean {
-    return this.currentUserValue != null;
+    return localStorage.getItem('currentUser') != null;
   }
 }
