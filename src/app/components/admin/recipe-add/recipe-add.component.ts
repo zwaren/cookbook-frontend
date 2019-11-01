@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../../services/recipe/recipe.service';
+import { FilesUploadService } from '../../../services/files-upload/files-upload.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-recipe-add',
@@ -11,8 +13,15 @@ import {Router} from '@angular/router';
 export class RecipeAddComponent implements OnInit {
 
   public addForm: FormGroup;
+  fileToUpload: File;
+  fileUrl: string;
 
-  constructor(private formBuilder: FormBuilder, private recipeService: RecipeService, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private recipeService: RecipeService,
+    private filesUploadService: FilesUploadService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
@@ -24,7 +33,19 @@ export class RecipeAddComponent implements OnInit {
     });
   }
 
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+  }
+
   public onSubmit() {
+    this.filesUploadService.upload(this.fileToUpload)
+      .subscribe(data => {
+        this.fileUrl = `${environment.apiUrl + data['file']}`;
+        console.log(data);
+      });
+
+    this.addForm.setValue(this.addForm.value + {'image': this.fileUrl});
+    console.log(this.addForm.value);
     this.recipeService.create(this.addForm.value)
       .subscribe(data => {
         this.router.navigate(['admin', 'recipe']);
