@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-
+import { AuthGuardService } from '../../services/auth-guard/auth-guard.service';
 import { AdminComponent } from './admin.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeAddComponent } from './recipe-add/recipe-add.component';
@@ -13,6 +13,7 @@ export const routes: Routes = [
   {
     path: '', 
     component: AdminComponent,
+    canActivate: [AuthGuardService],
     children: [
       { path: 'recipe', component: RecipeListComponent },
       { path: 'recipe-step', component: RecipeStepListComponent },
