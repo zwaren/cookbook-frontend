@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class RecipeAddComponent implements OnInit {
 
-  addForm: FormGroup;
+  public addForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private recipeService: RecipeService, private router: Router) { }
 
@@ -24,7 +24,7 @@ export class RecipeAddComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  public onSubmit() {
     this.recipeService.create(this.addForm.value)
       .subscribe(data => {
         this.router.navigate(['admin', 'recipe']);
