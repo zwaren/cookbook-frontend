@@ -17,6 +17,10 @@ export class RecipeService {
     return this.http.get<Recipe[]>(`${this.apiUrl}`);
   }
 
+  search(query: string): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(`${this.apiUrl}?q=${query.trim()}`);
+  }
+
   get(id: number): Observable<Recipe> {
     return this.http.get<Recipe>(`${this.apiUrl}/${id}`);
   }

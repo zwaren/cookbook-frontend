@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
 import { RecipesComponent } from './recipes.component';
 
 export const routes: Routes = [
@@ -14,6 +14,7 @@ export const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forChild(routes)
   ]
 })
